@@ -2,10 +2,18 @@ http:
   routers:
     helloexpress:
       service: "webHelloExpress"
+      middlewares:
+        - "test-auth"
       entryPoints: ["webhttp"]
-      rule: "HostSNI(`*`)"
+      rule: "Host()"
   services:
     webHelloExpress:
       loadBalancer:
         servers:
           - url: "http://web:3000"
+  middlewares:
+    test-auth:
+      basicAuth:
+        users:
+          - "test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/"
+          - "test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0"
