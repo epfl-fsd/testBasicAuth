@@ -1,0 +1,11 @@
+http:
+  routers:
+    helloexpress:
+      service: "webHelloExpress"
+      entryPoints: ["webhttp"]
+      rule: "HostSNI(`*`)"
+  services:
+    webHelloExpress:
+      loadBalancer:
+        servers:
+          - url: "http://web:3000"

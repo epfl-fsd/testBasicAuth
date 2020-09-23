@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: hello
+  # nginx:
+  #   image: "nginx:latest"
+  #   volumes:
+  #     - ./nginx/:/etc/nginx/
+  #   ports:
+  #     - "8080:80"
+  traefik:
+    image: "traefik:latest"
+    volumes:
+      - ./traefik/:/etc/traefik/
+    ports:
+      - "8081:80"
