@@ -5,7 +5,7 @@ http:
       middlewares:
         - "test-auth"
       entryPoints: ["webhttp"]
-      rule: "Host()"
+      rule: "Host(``)"
   services:
     webHelloExpress:
       loadBalancer:

@@ -13,4 +13,4 @@ services:
     volumes:
       - ./traefik/:/etc/traefik/
     ports:
-      - "8081:80"
+      - "8081:9999"
